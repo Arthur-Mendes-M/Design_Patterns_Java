@@ -1,8 +1,4 @@
-package com_padrão;
-
-// Contrato para definir o que um gerente que pode ou não aprovar pedidos deve ter
-// No caso, um gerente pode aprovar ou negar o pedido (realizado no método "aprovar")
-// Ou, caso o gerente não tenha autorização para aprovar ou negar o pedido ele deve passar para o próximo gerente (realizado no método "setProximoGerenteAprovador")
+package Behavioral_Patterns.chain_of_responsability_08.using_pattern;
 
 interface GerenteAprovadorDePedidos {
     void setProximoGerenteAprovador(GerenteAprovadorDePedidos aprovador);
@@ -40,7 +36,7 @@ class Gerente implements GerenteAprovadorDePedidos {
     @Override
     public boolean aprovar(Pedido pedido) {
         if (pedido.getValor() <= limiteAprovacao) {
-            System.out.println("Pedido aprovado por " + this.nome;
+            System.out.println("Pedido aprovado por " + this.nome);
 
             return true;
         } else if (proximoGerenteAprovador != null) {
